@@ -62,6 +62,6 @@
             </div>
         </div>
     </div>
-
+<script src="register.js"></script>
 </body>
 </html>
