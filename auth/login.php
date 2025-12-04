@@ -44,6 +44,6 @@
             </div>
         </div>
     </div>
-<script src="login.js"></script>
+<script src="auth/js/login.js"></script>
 </body>
 </html>
