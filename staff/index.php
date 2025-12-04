@@ -66,6 +66,7 @@ include('sidebar.php');
 </div>
 
 <!-- panggil index js nya -->
+<script src="js/index.js"></script>
 
 </body>
 </html>
