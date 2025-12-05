@@ -1,24 +1,18 @@
-/* Sidebar Staff */
-
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Ambil semua link navigasi
+
     const navLinks = document.querySelectorAll('.nav-link');
     const currentPath = window.location.pathname;
     const currentPage = currentPath.split('/').pop();
 
-    // Set active class berdasarkan halaman saat ini
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        
-        // Cek apakah link sesuai dengan halaman saat ini
+
         if (href === currentPage || 
             (currentPage === 'index.php' && href === 'index.php') ||
             (currentPage === '' && href === 'index.php')) {
             link.classList.add('active');
         }
 
-        // Tambahkan efek hover dengan animasi smooth
         link.addEventListener('mouseenter', function() {
             if (!this.classList.contains('active')) {
                 this.style.transform = 'translateX(8px)';
@@ -35,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Konfirmasi logout
     const logoutLink = document.querySelector('a[href="../auth/logout.php"]');
     if (logoutLink) {
         logoutLink.addEventListener('click', function(e) {
@@ -45,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Efek hover pada button logout
         logoutLink.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.05)';
             this.style.transition = 'all 0.3s ease';
@@ -58,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animasi loading untuk menu items
     const menuItems = document.querySelectorAll('.nav-item');
     menuItems.forEach((item, index) => {
         item.style.opacity = '0';
@@ -71,10 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, index * 100);
     });
 
-    // Smooth scroll untuk sidebar
     const sidebar = document.querySelector('.sidebar');
     if (sidebar) {
-        // Tambahkan efek shadow saat scroll
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
                 sidebar.style.boxShadow = '2px 0 15px rgba(0,0,0,0.3)';
@@ -84,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Toggle sidebar untuk mobile (responsive)
     const toggleButton = document.querySelector('.sidebar-toggle');
     if (toggleButton) {
         toggleButton.addEventListener('click', function() {
@@ -92,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close sidebar saat klik di luar (mobile)
     document.addEventListener('click', function(e) {
         if (window.innerWidth <= 768) {
             if (sidebar && !sidebar.contains(e.target) && !e.target.classList.contains('sidebar-toggle')) {
@@ -101,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Animasi untuk greeting user
     const userGreeting = document.querySelector('.text-center.mb-4 strong');
     if (userGreeting) {
         userGreeting.style.opacity = '0';
@@ -111,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
 
-    // Tambahkan indicator untuk menu aktif
     const activeLink = document.querySelector('.nav-link.active');
     if (activeLink) {
         activeLink.style.position = 'relative';
@@ -129,13 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
         activeLink.appendChild(indicator);
     }
 
-    // Cek notifikasi dari URL
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('sukses') === 'login') {
         showSuccessNotification('Selamat datang kembali!');
     }
 
-    // Fungsi menampilkan notifikasi sukses
     function showSuccessNotification(message) {
         const notification = document.createElement('div');
         notification.textContent = message;
@@ -164,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 
-    // Tambahkan CSS animation
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
