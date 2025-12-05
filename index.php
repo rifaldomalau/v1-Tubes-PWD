@@ -138,6 +138,7 @@ session_start();
         <p>&copy; <?php echo date('Y'); ?> E-Staff Application.</p>
         <small>Dibuat oleh Kelompok 3</small>
     </footer>
+    <script src="js/index.js"></script>
 
 </body>
 </html>
