@@ -147,3 +147,4 @@
         </a>
     </div>
 </div>
+<script src="js/sidebar.js"></script>
