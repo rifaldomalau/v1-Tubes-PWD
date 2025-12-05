@@ -1,0 +1,100 @@
+body {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.edit-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.edit-wrapper {
+    width: 90%;
+    max-width: 600px;
+}
+
+.edit-card {
+    background: #ffffff;
+    padding: 25px 30px;
+    margin-top: 40px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.edit-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000535;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.edit-form .form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-cancel {
+    background: #777;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background: #555;
+}
+
+.btn-save {
+    background: #000535;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-save:hover {
+    background: #000000;
+}

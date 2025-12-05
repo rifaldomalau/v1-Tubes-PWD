@@ -17,7 +17,7 @@ if (isset($_POST['register'])) {
     $password = mysqli_real_escape_string($koneksi, $_POST['password']);
     $role     = $_POST['role']; 
 
-    // Cek Duplikat
+    // Cek ada Duplikat?
     $cek_data = mysqli_query($koneksi, "SELECT * FROM users WHERE email = '$email' OR username = '$username'");
     if (mysqli_num_rows($cek_data) > 0) {
         echo "<script>alert('Username/Email sudah terdaftar!'); window.location='register.php';</script>";
@@ -34,7 +34,7 @@ if (isset($_POST['register'])) {
 
     if (mysqli_query($koneksi, $query)) {
         
-        // --- PROSES KIRIM EMAIL (PHPMailer) ---
+        // PROSES KIRIM EMAIL (PHPMailer)
         $mail = new PHPMailer(true);
 
         try {

@@ -20,11 +20,12 @@ if(isset($_GET['selesai'])){
 <head>
     <meta charset="UTF-8">
     <title>Tugas Saya</title>
+    <link rel="stylesheet" href="css/tugas.css">
 </head>
 <body>
 
-<div class="d-flex">
-    
+<div class="layout">
+
     <?php 
     $page = 'tugas'; 
     include('sidebar.php'); 
@@ -36,40 +37,46 @@ if(isset($_GET['selesai'])){
         <div class="row">
             <?php
             $query = mysqli_query($koneksi, "SELECT * FROM tugas WHERE user_id='$id_saya' ORDER BY status ASC, deadline ASC");
-            
+
             if(mysqli_num_rows($query) == 0){
-                echo "<div><div>Belum ada tugas baru untuk Anda.</div></div>";
+                echo "
+                <div class='notask-card'>
+                    <p>Belum ada tugas baru untuk Anda.</p>
+                </div>";
             }
 
             while($row = mysqli_fetch_assoc($query)){
             ?>
-            <div>
+            <div class="task-card">
                 <div>
-                    <div>
-                        <h5><?php echo $row['judul']; ?></h5>
-                        <small><?php echo date('d M Y', strtotime($row['deadline'])); ?></small>
-                    </div>
-                    <div>
-                        <p><?php echo $row['deskripsi']; ?></p>
-                        <hr>
-                        <div>
-                            <span>Status: </span>
-                            
-                            <?php if($row['status'] == 'Belum Selesai'){ ?>
-                                <a href="tugas.php?selesai=<?php echo $row['id']; ?>" onclick="return confirm('Yakin tugas ini sudah beres?')">
-                                    ✅ Tandai Selesai
-                                </a>
-                            <?php } else { ?>
-                                <button disabled>TUNTAS 🎉</button>
-                            <?php } ?>
-                        </div>
-                    </div>
+                    <h5><?php echo $row['judul']; ?></h5>
+                    <small>Deadline: <?php echo date('d M Y', strtotime($row['deadline'])); ?></small>
                 </div>
+
+                <p><?php echo $row['deskripsi']; ?></p>
+
+                <hr>
+
+                <div class="task-action">
+                    <span>Status:</span>
+
+                    <?php if($row['status'] == 'Belum Selesai'){ ?>
+                        <a href="tugas.php?selesai=<?php echo $row['id']; ?>" 
+                           onclick="return confirm('Yakin tugas ini sudah beres?')">
+                            ✅ Tandai Selesai
+                        </a>
+                    <?php } else { ?>
+                        <button disabled class="done-btn">TUNTAS 🎉</button>
+                    <?php } ?>
+                </div>
+
             </div>
             <?php } ?>
         </div>
+
     </div>
 
 </div>
+
 </body>
 </html>

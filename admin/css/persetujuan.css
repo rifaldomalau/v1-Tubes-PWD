@@ -1,0 +1,124 @@
+body {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.layout-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.content-area {
+    flex: 1;
+    padding: 20px 30px;
+}
+
+.title-page {
+    color: #000535;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* === Table === */
+.approval-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.table-header {
+    background: #000535;
+    color: #fff;
+}
+
+.table-header th {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.table-row td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.table-row:hover {
+    background: #f9f9f9;
+}
+
+.link-bukti {
+    color: #007bff;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.link-bukti:hover {
+    text-decoration: underline;
+}
+
+.col-status {
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #d17b00;
+}
+
+.status-diterima {
+    color: #2e7d32;
+}
+
+.status-ditolak {
+    color: #c62828;
+}
+
+.btn-approve {
+    background: #2e7d32;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 5px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-approve:hover {
+    background: #1b5e20;
+}
+
+.btn-reject {
+    background: #c62828;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-reject:hover {
+    background: #8e0000;
+}
+
+/* Sudah diproses */
+.info-proses {
+    color: #777;
+    font-style: italic;
+}

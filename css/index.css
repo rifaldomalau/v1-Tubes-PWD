@@ -1,1 +1,203 @@
-/* ini untuk yang root di index.php */
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f9fafb;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* NAV BAR */
+nav {
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: 0.3s ease;
+}
+
+.nav-scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 8px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+nav > div {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    align-items: center;
+}
+
+nav li a:hover {
+    color: #007bff;
+}
+
+/* HERO */
+section:first-of-type {
+    padding: 80px 20px;
+    background: linear-gradient(to right, #4f46e5, #6366f1);
+    color: white;
+}
+
+section:first-of-type > div {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+section:first-of-type a {
+    display: inline-block;
+    background: white;
+    color: #4f46e5;
+    padding: 12px 25px;
+    margin: 20px 10px 0;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+section:first-of-type a:hover {
+    transform: translateY(-3px);
+}
+
+/* FITUR */
+#fitur {
+    padding: 70px 20px;
+    background: #f3f4f6;
+}
+
+#fitur > div {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+#fitur > div > div {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card-hover {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: .25s;
+}
+
+.card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* TEAM */
+#team {
+    padding: 70px 20px;
+}
+
+#team > div {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+#team > div > div {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+}
+
+/* CTA */
+section:last-of-type {
+    padding: 70px 20px;
+    background: #4f46e5;
+    color: white;
+    text-align: center;
+}
+
+section:last-of-type a {
+    display: inline-block;
+    margin-top: 20px;
+    background: white;
+    color: #4f46e5;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+section:last-of-type a:hover {
+    transform: translateY(-4px);
+}
+
+/* FOOTER */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #111827;
+    color: white;
+    margin-top: 50px;
+}
+
+footer small {
+    font-size: .8rem;
+    opacity: .7;
+}
+
+/* SUPAYA RESPONSIF */
+@media(max-width: 700px) {
+    nav ul {
+        gap: 15px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+}
+
+/* ANIMASI */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.7s ease-out;
+}
+
+.animate-show {
+    opacity: 1;
+    transform: translateY(0);
+}

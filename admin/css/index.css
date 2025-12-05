@@ -1,1 +1,165 @@
-/* ISI UNTUK INDEX.PHP */
+body {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Layout */
+.layout-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 20px 30px;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+h2 {
+    margin: 0;
+    color: #000535;
+}
+
+span {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Section */
+.section-box {
+    margin-top: 20px;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* Section header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h5 {
+    margin: 0;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.section-header a {
+    background: #000535;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.section-header a:hover {
+    background: #000000;
+}
+
+/* Tabel */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* RESPONSIVE */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    min-width: 700px; /* Biar di mobile bisa scroll */
+}
+
+thead {
+    background: #000535;
+    color: #fff;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #f9f9f9;
+}
+
+/* Lokasi */
+td small {
+    color: #555;
+    font-size: 12px;
+}
+
+/* Link */
+td a {
+    color: #007bff;
+    text-decoration: none;
+    transition: .3s;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Animasi */
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Resposnif */
+@media (max-width: 768px) {
+
+    .content {
+        padding: 15px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}

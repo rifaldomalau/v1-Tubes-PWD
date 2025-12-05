@@ -16,57 +16,67 @@ $data = mysqli_fetch_assoc($query);
 <head>
     <meta charset="UTF-8">
     <title>Edit Profil</title>
+    <link rel="stylesheet" href="css/profil.css">
 </head>
 <body>
 
-<?php $page = 'profil'; include('sidebar.php'); ?>
+<div class="layout">
 
-<h2>Edit Profil Saya</h2>
+    <?php $page = 'profil'; include('sidebar.php'); ?>
 
-<?php 
-if(isset($_GET['pesan']) && $_GET['pesan'] == 'sukses') {
-    echo "<p style='color:green;'>Profil berhasil diperbarui!</p>";
-} elseif(isset($_GET['pesan']) && $_GET['pesan'] == 'gagal') {
-    echo "<p style='color:red;'>Gagal update profil. Cek tipe file gambar.</p>";
-}
-?>
+    <div class="content">
 
-<form action="profil-proses.php" method="POST" enctype="multipart/form-data">
+        <h2>Edit Profil Saya</h2>
 
-    <?php 
-    $foto = $data['foto_profil'];
-    if($foto == "" || !file_exists("../assets/img/$foto")){ $foto = "default.png"; }
-    ?>
-    <div>
-        <img src="../assets/img/<?php echo $foto; ?>" alt="Foto Profil" style="width:150px;height:150px;object-fit:cover;border-radius:50%;">
+        <?php 
+        if(isset($_GET['pesan']) && $_GET['pesan'] == 'sukses') {
+            echo "<p class='msg-success'>Profil berhasil diperbarui!</p>";
+        } elseif(isset($_GET['pesan']) && $_GET['pesan'] == 'gagal') {
+            echo "<p class='msg-error'>Gagal update profil. Cek tipe file gambar.</p>";
+        }
+        ?>
+
+        <form action="profil-proses.php" method="POST" enctype="multipart/form-data">
+
+            <?php 
+            $foto = $data['foto_profil'];
+            if($foto == "" || !file_exists("../assets/img/$foto")){ 
+                $foto = "default.png"; 
+            }
+            ?>
+
+            <div class="foto-wrapper">
+                <img src="../assets/img/<?php echo $foto; ?>" alt="Foto Profil">
+            </div>
+
+            <div>
+                <label>Ganti Foto Profil</label>
+                <input type="file" name="foto" accept=".jpg,.jpeg,.png">
+                <small>Format: JPG, JPEG, PNG (Max 2MB)</small>
+            </div>
+
+            <div>
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama" value="<?php echo $data['nama_lengkap']; ?>" required>
+            </div>
+
+            <div>
+                <label>Username</label>
+                <input type="text" value="<?php echo $data['username']; ?>" readonly>
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input type="email" value="<?php echo $data['email']; ?>" readonly>
+            </div>
+
+            <button type="submit" name="update">Simpan Perubahan</button>
+
+        </form>
+
     </div>
 
-    <div>
-        <label>Ganti Foto Profil</label><br>
-        <input type="file" name="foto" accept=".jpg,.jpeg,.png">
-        <small>Format: JPG, JPEG, PNG (Max 2MB)</small>
-    </div>
-
-    <div>
-        <label>Nama Lengkap</label><br>
-        <input type="text" name="nama" value="<?php echo $data['nama_lengkap']; ?>" required>
-    </div>
-
-    <div>
-        <label>Username</label><br>
-        <input type="text" value="<?php echo $data['username']; ?>" readonly>
-    </div>
-
-    <div>
-        <label>Email</label><br>
-        <input type="email" value="<?php echo $data['email']; ?>" readonly>
-    </div>
-
-    <div>
-        <button type="submit" name="update">Simpan Perubahan</button>
-    </div>
-
-</form>
+</div>
 
 </body>
 </html>

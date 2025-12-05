@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         //validasi panjang pw
-        if (password.length < 4) {
-            e.preventDefault();
-            alert("Password harus minimal 4 karakter!");
-            return;
-        }
+        // if (password.length < 4) {
+        //     e.preventDefault();
+        //     alert("Password harus minimal 4 karakter!");
+        //     return;
+        // }
     });
 });

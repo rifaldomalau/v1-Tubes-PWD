@@ -14,7 +14,7 @@ if (isset($_POST['update'])) {
     $error     = $_FILES['foto']['error'];
     $ekstensi_diperbolehkan = ['jpg', 'jpeg', 'png'];
 
-    // JIKA User TIDAK upload foto (Hanya ganti nama)
+    // JIKA User TIDAK upload foto (misal cuma ganti nama)
     if ($error === 4) {
         $query = "UPDATE users SET nama_lengkap = '$nama' WHERE id = '$id'";
         if (mysqli_query($koneksi, $query)) {

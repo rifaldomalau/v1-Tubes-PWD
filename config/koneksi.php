@@ -1,5 +1,5 @@
 <?php
-$server   = "localhost:3307"; // laptopku portnya bentrok, jadi kukasih 3307. kalian hapus aja 3307 kalau tidak bentrok
+$server   = "localhost"; // laptopku portnya bentrok, jadi kukasih 3307. kalian hapus aja 3307 kalau tidak bentrok
 $username = "root";           
 $password = "";               
 $database = "db_pegawai";     
