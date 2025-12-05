@@ -1,71 +1,81 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const form = document.querySelector('form');
+    const namaInput = document.querySelector('input[name="nama"]');
+    const usernameInput = document.querySelector('input[name="username"]');
+    const emailInput = document.querySelector('input[name="email"]');
+    const passwordInput = document.querySelector('input[name="password"]');
+    const submitButton = document.querySelector('button[type="submit"]');
 
-    //untuk ambil element form
-    const form = document.querySelector("form");
-
-    //ambil input
-    const nama = form.querySelector("input[name='nama']");
-    const username = form.querySelector("input[name='username']");
-    const email = form.querySelector("input[name='email']");
-    const password = form.querySelector("input[name='password']");
-
-    form.addEventListener("submit", function (e) {
-
-        //validasi nama
-        if (nama.value.trim() === "") {
-            alert("Nama lengkap tidak boleh kosong!");
-            e.preventDefault();
-            return;
-        }
-
-        if (nama.value.trim().length < 3) {
-            alert("Nama harus berisi minimal 3 karakter!");
-            e.preventDefault();
-            return;
-        }
-
-        //validasi usn
-        if (username.value.trim() === "") {
-            alert("Username tidak boleh kosong!");
-            e.preventDefault();
-            return;
-        }
-
-        if (username.value.trim().length < 4) {
-            alert("Username harus minimal 4 karakter!");
-            e.preventDefault();
-            return;
-        }
-
-        //validasi email
-        if (email.value.trim() === "") {
-            alert("Email tidak boleh kosong!");
-            e.preventDefault();
-            return;
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value)) {
-            alert("Format email tidak valid!");
-            e.preventDefault();
-            return;
-        }
-
-        //validasi pw
-        if (password.value.trim() === "") {
-            alert("Password tidak boleh kosong!");
-            e.preventDefault();
-            return;
-        }
-
-        if (password.value.length < 6) {
-            alert("Password harus minimal 6 karakter!");
-            e.preventDefault();
-            return;
-        }
-
+    // Validasi form sebelum submit
+    form.addEventListener('submit', function(e) {
         
-        alert("Registrasi sedang diproses...");
-        
+        let errors = [];
+
+        // Validasi nama lengkap
+        if (namaInput.value.trim() === '') {
+            errors.push('Nama lengkap harus diisi');
+        }
+
+        // Validasi username
+        if (usernameInput.value.trim() === '') {
+            errors.push('Username harus diisi');
+        }
+
+        // Validasi email
+        if (emailInput.value.trim() === '') {
+            errors.push('Email harus diisi');
+        } else if (!isValidEmail(emailInput.value)) {
+            errors.push('Format email tidak valid');
+        }
+
+        // Validasi password
+        if (passwordInput.value.trim() === '') {
+            errors.push('Password harus diisi');
+        }
+
+        // Jika ada error, tampilkan dan cegah submit
+        if (errors.length > 0) {
+            e.preventDefault();
+            alert(errors.join('\n'));
+            return false;
+        }
+
+        // Loading state pada button
+        submitButton.disabled = true;
+        submitButton.textContent = 'Memproses pendaftaran...';
     });
+
+    // Fungsi validasi email
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Real-time validasi email
+    emailInput.addEventListener('blur', function() {
+        if (this.value.trim() !== '' && !isValidEmail(this.value)) {
+            this.style.borderColor = '#e53e3e';
+        } else {
+            this.style.borderColor = '#e2e8f0';
+        }
+    });
+
+    // Auto hide alert message setelah 5 detik
+    const alertMessage = document.querySelector('.alert-message');
+    if (alertMessage) {
+        setTimeout(function() {
+            alertMessage.style.transition = 'opacity 0.5s ease';
+            alertMessage.style.opacity = '0';
+            setTimeout(function() {
+                alertMessage.remove();
+            }, 500);
+        }, 5000);
+    }
+
+    // Hapus spasi dari username
+    usernameInput.addEventListener('input', function() {
+        this.value = this.value.replace(/\s/g, '');
+    });
+
 });
