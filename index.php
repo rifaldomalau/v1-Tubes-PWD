@@ -103,8 +103,8 @@ session_start();
                 </div>
 
                 <div class="card-hover">
-                    <img src="https://ui-avatars.com/api/?name=Kelvin+Kurniawan&background=random" width="100" height="100">
-                    <h6>Kelvin Kurniawan</h6>
+                    <img src="https://ui-avatars.com/api/?name=Kelvin+Kelvin&background=random" width="100" height="100">
+                    <h6>Kelvin</h6>
                     <small>NPM: 230712436</small>
                 </div>
 
