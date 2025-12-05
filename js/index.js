@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-//ANIMASI SCROLL NAVBARNYA
 const navbar = document.querySelector("nav");
 
 window.addEventListener("scroll", () => {
@@ -10,7 +9,6 @@ window.addEventListener("scroll", () => {
     }
 });
 
-//Supaya Smooth
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         const target = document.querySelector(this.getAttribute("href"));
@@ -18,8 +16,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             e.preventDefault();
             target.scrollIntoView({ behavior: "smooth" });
 =======
-// ini untuk js yang di root index.php
-// Smooth scroll untuk navigasi
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -35,7 +32,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 <<<<<<< HEAD
-// awal muncul scroll
 const observer = new IntersectionObserver(
     entries => {
         entries.forEach(entry => {
@@ -66,14 +62,12 @@ if (heroTitle) {
     typeEffect();
 }
 =======
-// Navbar scroll effect
 const nav = document.querySelector('nav');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
-    // Tambah shadow saat scroll
     if (currentScroll > 50) {
         nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
         nav.style.backgroundColor = '#ffffff';
@@ -82,7 +76,6 @@ window.addEventListener('scroll', () => {
         nav.style.backgroundColor = 'transparent';
     }
 
-    // Hide/show navbar on scroll (opsional)
     if (currentScroll > lastScroll && currentScroll > 500) {
         nav.style.transform = 'translateY(-100%)';
     } else {
@@ -92,7 +85,6 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer untuk animasi fade-in
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -107,7 +99,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe semua section
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
@@ -115,7 +106,6 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Animasi untuk fitur cards
 const featureCards = document.querySelectorAll('#fitur > div > div > div');
 featureCards.forEach((card, index) => {
     card.style.opacity = '0';
@@ -135,7 +125,6 @@ featureCards.forEach((card, index) => {
     cardObserver.observe(card);
 });
 
-// Animasi untuk team members
 const teamMembers = document.querySelectorAll('#team > div > div > div');
 teamMembers.forEach((member, index) => {
     member.style.opacity = '0';
@@ -155,7 +144,6 @@ teamMembers.forEach((member, index) => {
     memberObserver.observe(member);
 });
 
-// Hover effect untuk buttons
 const buttons = document.querySelectorAll('a[href*="auth"], a[href*="admin"], a[href*="staff"]');
 buttons.forEach(button => {
     button.addEventListener('mouseenter', function() {
@@ -169,7 +157,6 @@ buttons.forEach(button => {
     });
 });
 
-// Parallax effect untuk hero section (opsional)
 const hero = document.querySelector('section:first-of-type');
 if (hero) {
     window.addEventListener('scroll', () => {
@@ -181,7 +168,6 @@ if (hero) {
     });
 }
 
-// Counter animation untuk statistik (jika diperlukan di masa depan)
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
@@ -197,7 +183,6 @@ function animateCounter(element, target, duration = 2000) {
     }, 16);
 }
 
-// Mobile menu toggle (jika ada hamburger menu)
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('nav ul');
 
@@ -206,8 +191,7 @@ if (menuToggle && navMenu) {
         navMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
     });
-    
-    // Close menu saat link diklik
+   
     document.querySelectorAll('nav ul li a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -216,11 +200,9 @@ if (menuToggle && navMenu) {
     });
 }
 
-// Loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
-    // Fade in sections class
+
     const fadeInClass = document.createElement('style');
     fadeInClass.textContent = `
         .fade-in {
@@ -231,7 +213,6 @@ window.addEventListener('load', () => {
     document.head.appendChild(fadeInClass);
 });
 
-// Active nav link highlighting
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
 
@@ -254,7 +235,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Prevent scroll jank
 let ticking = false;
 window.addEventListener('scroll', () => {
     if (!ticking) {
