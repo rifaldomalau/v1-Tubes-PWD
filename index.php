@@ -45,7 +45,7 @@ session_start();
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Kelola Kinerja Pegawai Lebih Mudah</h1>
+            <h1 class="hero-title">Kelola-Kinerja-Pegawai-Lebih-Mudah</h1>
             <p class="hero-sub">
                 Sistem manajemen kepegawaian modern dengan fitur Geolocation, Pelaporan Real-time, dan Manajemen Tugas.
             </p>
